@@ -71,7 +71,9 @@ class EmployeesViewController: UITableViewController {
             if(success) {
                 self.employees.remove(at: indexPath.row)
                 let indexPaths = [indexPath]
-                tableView.deleteRows(at: indexPaths, with: .automatic)
+                DispatchQueue.main.async(execute: {
+                    tableView.deleteRows(at: indexPaths, with: .automatic)
+                })
             }
             
         }      
