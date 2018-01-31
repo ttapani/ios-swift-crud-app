@@ -1,12 +1,15 @@
+//
+//  DepartmentsViewController.swift
+//  Company
+//
+//  Created by Tomi Heino on 29/01/2018.
+//  Copyright © 2018 th. All rights reserved.
+//
+
 import UIKit
 
-class EmployeesViewController: UITableViewController {
-    var employees: [Employee] = []
+class DepartmentsViewController: UITableViewController {
 
-    @IBAction func refreshEmployeesClicked(_ sender: Any) {
-        loadData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -15,7 +18,6 @@ class EmployeesViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,58 +26,26 @@ class EmployeesViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    func loadData() -> Void {
-        self.employees.removeAll()
-        Employee.getEmployees { (employees) in
-            self.employees = employees
-            
-            DispatchQueue.main.async(execute: {
-                print("emp: ")
-                print(self.employees.count)
-                self.tableView.reloadData()
-            })
-            
-        }
-    }
-
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.employees.count
+        return 0
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCell
-        
-        let employee = employees[indexPath.row] as Employee
-        cell.employee = employee
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    @IBAction func cancelToEmployeesViewController(_ segue: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func saveEmployeeDetail(_ segue: UIStoryboardSegue) {
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let employee = employees[indexPath.row] as Employee
-        
-        Employee.deleteEmployee(id: employee.id) { (success) in
-            if(success) {
-                self.employees.remove(at: indexPath.row)
-                let indexPaths = [indexPath]
-                tableView.deleteRows(at: indexPaths, with: .automatic)
-            }
-            
-        }      
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -123,4 +93,3 @@ class EmployeesViewController: UITableViewController {
     */
 
 }
-

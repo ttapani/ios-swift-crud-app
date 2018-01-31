@@ -78,4 +78,16 @@ extension Employee {
         }
         
     }
+    
+    static func deleteEmployee(id: String, completion: @escaping (Bool) -> Void) {
+        let deleteUrl = "employee"
+        
+        Api.delete(collection: deleteUrl, id: id) { (data, succeeded, error) in
+            if !succeeded {
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
+        }
+    }
 }

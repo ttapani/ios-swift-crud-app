@@ -25,7 +25,23 @@ struct Api {
                     getCompleted(data, true, String(httpResponse.statusCode))
                 }
             }
-            
-            }.resume()
+        }.resume()
+    }
+    
+    // this handles api deletions
+    static func delete(collection: String, id: String, deleteCompleted:@escaping (Data?, Bool, String) -> Void) {
+        let apiUrl = URL(string: self.companyUrl + collection + "/" + id)
+        var request = URLRequest(url: apiUrl!)
+        request.httpMethod = "DELETE"
+        print(request as Any)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode != 200 {
+                    deleteCompleted(nil, false, String(httpResponse.statusCode))
+                } else {
+                    deleteCompleted(data, true, String(httpResponse.statusCode))
+                }
+            }
+        }.resume()
     }
 }
