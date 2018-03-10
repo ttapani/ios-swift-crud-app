@@ -9,6 +9,7 @@
 import UIKit
 
 class DepartmentsViewController: UITableViewController {
+    var departments: [Department] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class DepartmentsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +28,34 @@ class DepartmentsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    func loadData() -> Void {
+        self.departments.removeAll()
+        Department.getDepartments { (departments) in
+            self.departments = departments
+            
+            DispatchQueue.main.async(execute: {
+                print("departments: ")
+                print(self.departments.count)
+                self.tableView.reloadData()
+            })
+            
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.departments.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DepartmentCell", for: indexPath) as! DepartmentCell
+        
+        let department = departments[indexPath.row] as Department
+        cell.department = department
+        return cell
     }
 
     /*
