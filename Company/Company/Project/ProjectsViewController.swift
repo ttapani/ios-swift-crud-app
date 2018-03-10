@@ -9,6 +9,7 @@
 import UIKit
 
 class ProjectsViewController: UITableViewController {
+    var projects: [Project] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class ProjectsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,26 +28,34 @@ class ProjectsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    func loadData() -> Void {
+        self.projects.removeAll()
+        Project.getProjects { (projects) in
+            self.projects = projects
+            
+            DispatchQueue.main.async(execute: {
+                print("projects:")
+                print(projects.count)
+                self.tableView.reloadData()
+            })
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return projects.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectCell
 
-        // Configure the cell...
-
+        let project = projects[indexPath.row] as Project
+        cell.project = project
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
