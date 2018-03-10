@@ -72,8 +72,8 @@
 			children = (
 				2ABA23AA201F70BD008186A2 /* HomeViewController.swift */,
 				2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */,
-				2ABA23A8201F641D008186A2 /* EmployeeDetailsViewController.swift */,
 				2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */,
+				2ABA23A8201F641D008186A2 /* EmployeeDetailsViewController.swift */,
 				2AFA737520161EFD00718984 /* EmployeesViewController.swift */,
 				2AFA73772016200C00718984 /* EmployeeCell.swift */,
 				2AFA735F20161B4000718984 /* AppDelegate.swift */,

@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="-582.45877061469275"/>
         </scene>
-        <!--Employees View Controller-->
+        <!--Employees-->
         <scene sceneID="zQp-ia-5nL">
             <objects>
                 <tableViewController id="veb-2s-nAf" customClass="EmployeesViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,26 +45,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EmployeeCell" rowHeight="60" id="JhD-Ix-R2H" customClass="EmployeeCell" customModule="Company" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EmployeeCell" id="JhD-Ix-R2H" customClass="EmployeeCell" customModule="Company" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JhD-Ix-R2H" id="EKc-fH-Qpp">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SYR-lX-rhY">
-                                            <rect key="frame" x="20" y="5" width="301" height="50"/>
+                                            <rect key="frame" x="20" y="5" width="301" height="33.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g51-p9-KoB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="33.5"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="50" id="XUJ-XD-fQh"/>
                                                         <constraint firstAttribute="width" constant="50" id="s40-X7-3O0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ugv-Zn-8Z9">
-                                                    <rect key="frame" x="70" y="5" width="231" height="40"/>
+                                                    <rect key="frame" x="70" y="0.0" width="231" height="33.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-5B-fEk">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-5B-fEk">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Label">
@@ -75,8 +76,8 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2go-C2-gQR">
-                                                            <rect key="frame" x="0.0" y="23.5" width="34.5" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2go-C2-gQR">
+                                                            <rect key="frame" x="0.0" y="20.5" width="34.5" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Label">
                                                                     <attributes>
@@ -90,24 +91,22 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="ugv-Zn-8Z9" secondAttribute="bottom" constant="5" id="C1X-ql-2Ox"/>
-                                                <constraint firstAttribute="height" constant="50" id="VL6-Te-2FY"/>
                                                 <constraint firstItem="ugv-Zn-8Z9" firstAttribute="leading" secondItem="g51-p9-KoB" secondAttribute="trailing" constant="20" id="YkT-vi-fQa"/>
-                                                <constraint firstItem="ugv-Zn-8Z9" firstAttribute="top" secondItem="SYR-lX-rhY" secondAttribute="top" constant="5" id="rMd-ar-Cnz"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="SYR-lX-rhY" secondAttribute="trailing" constant="20" id="0Yl-Kb-U0L"/>
+                                        <constraint firstAttribute="bottom" secondItem="SYR-lX-rhY" secondAttribute="bottom" constant="5" id="1KK-A0-3X9"/>
                                         <constraint firstItem="SYR-lX-rhY" firstAttribute="leading" secondItem="EKc-fH-Qpp" secondAttribute="leading" constant="20" id="8Cx-5E-ULj"/>
-                                        <constraint firstAttribute="bottom" secondItem="SYR-lX-rhY" secondAttribute="bottom" constant="5" id="bRt-hW-Ngm"/>
-                                        <constraint firstItem="SYR-lX-rhY" firstAttribute="top" secondItem="EKc-fH-Qpp" secondAttribute="top" constant="5" id="kjB-l3-MZm"/>
+                                        <constraint firstItem="SYR-lX-rhY" firstAttribute="top" secondItem="EKc-fH-Qpp" secondAttribute="top" constant="5" id="fG6-0e-hfE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="departmentLabel" destination="2go-C2-gQR" id="0sC-aC-5WU"/>
                                     <outlet property="employeeImage" destination="g51-p9-KoB" id="k7n-Vr-Qhk"/>
                                     <outlet property="nameLabel" destination="tCr-5B-fEk" id="yxk-hB-Ggq"/>
+                                    <segue destination="QKl-Jl-aOi" kind="show" identifier="ShowEmployeeDetail" id="h2l-z0-EVV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -116,7 +115,7 @@
                             <outlet property="delegate" destination="veb-2s-nAf" id="kfp-TA-xzZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EMn-iE-5y7">
+                    <navigationItem key="navigationItem" title="Employees" id="EMn-iE-5y7">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="dJ9-HM-el6">
                             <connections>
                                 <action selector="refreshEmployeesClicked:" destination="veb-2s-nAf" id="5bP-mO-I22"/>
@@ -124,7 +123,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="v61-1C-UaT">
                             <connections>
-                                <segue destination="cCj-HW-AbN" kind="presentation" id="WD3-xx-VG7"/>
+                                <segue destination="cCj-HW-AbN" kind="presentation" identifier="AddEmployee" id="WD3-xx-VG7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -133,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="842.39999999999998" y="175.86206896551727"/>
         </scene>
-        <!--Add employee-->
+        <!--Employee details-->
         <scene sceneID="N3w-Id-FTO">
             <objects>
-                <tableViewController title="Add employee" id="QKl-Jl-aOi" customClass="EmployeeDetailsViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Employee details" id="QKl-Jl-aOi" customClass="EmployeeDetailsViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rkX-eO-tls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +143,7 @@
                         <sections>
                             <tableViewSection headerTitle="First name" id="svP-f4-X81">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tQM-Co-14h">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="tQM-Co-14h">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tQM-Co-14h" id="6WR-w5-N9y">
@@ -310,48 +309,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Image" id="RN0-IL-5Nz">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OaE-MQ-E0u">
-                                        <rect key="frame" x="0.0" y="855.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OaE-MQ-E0u" id="p3Y-Ql-asq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G0w-Si-04m">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="QKl-Jl-aOi" id="XFd-ww-w40"/>
                             <outlet property="delegate" destination="QKl-Jl-aOi" id="j4M-Y2-FDp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aOg-T4-RJH">
+                    <navigationItem key="navigationItem" title="New Employee" id="aOg-T4-RJH">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JjJ-Og-ZHg">
                             <connections>
-                                <segue destination="3Ye-cq-Nik" kind="unwind" unwindAction="cancelToEmployeesViewController:" id="0FU-QL-Cxf"/>
+                                <action selector="cancel:" destination="QKl-Jl-aOi" id="U9V-sh-zr4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Vfs-QN-7ir">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vfs-QN-7ir">
                             <connections>
-                                <segue destination="3Ye-cq-Nik" kind="unwind" unwindAction="saveEmployeeDetail:" id="bcx-uG-k4i"/>
+                                <segue destination="3Ye-cq-Nik" kind="unwind" unwindAction="unwindToEmployeeListWithSender:" id="4CD-cZ-AcT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthdayTextField" destination="Ri6-Yj-f2U" id="UpD-ri-Iit"/>
+                        <outlet property="departmentTextField" destination="Efe-dg-wJk" id="Q6n-0b-85K"/>
+                        <outlet property="emailTextField" destination="mTW-O7-26B" id="3nT-7l-rSr"/>
                         <outlet property="fnameTextField" destination="7I1-Hq-GS9" id="cJA-gO-h3n"/>
                         <outlet property="lnameTextField" destination="7w0-lZ-0wf" id="4Xp-jw-hrI"/>
+                        <outlet property="phone1TextField" destination="W01-zA-vUz" id="TlC-L3-e76"/>
+                        <outlet property="phone2TextField" destination="mHs-wI-kgt" id="CJl-eZ-tpB"/>
+                        <outlet property="salaryTextField" destination="tQ7-oa-m9P" id="sMQ-eN-YA3"/>
+                        <outlet property="saveButton" destination="Vfs-QN-7ir" id="5nh-th-4Bj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syQ-mK-DQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -530,7 +515,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nk-Dr-vOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641.5999999999999" y="175.41229385307346"/>
+            <point key="canvasLocation" x="1666" y="-158"/>
         </scene>
     </scenes>
     <resources>
@@ -539,4 +524,7 @@
         <image name="038" width="40" height="40"/>
         <image name="044" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="h2l-z0-EVV"/>
+    </inferredMetricsTieBreakers>
 </document>

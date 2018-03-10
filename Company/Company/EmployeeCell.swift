@@ -13,15 +13,22 @@ class EmployeeCell: UITableViewCell {
             let fullName: String? = employee.fname! + " " + employee.lname!
             nameLabel.text = fullName
             departmentLabel.text = employee.dname
+
             
-            let url = URL(string: Api.companyImageUrl + employee.image!)
-            
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    self.employeeImage.image = UIImage(data: data!)
-                }
-            }
+//            DispatchQueue.global().async {
+//                if let data = try? Data(contentsOf: url!) {
+//                    DispatchQueue.main.async {
+//                        print("employee " + fullName! + " image set")
+//                        self.employeeImage.image = UIImage(data: data)
+//                    }
+//                }
+//                else {
+//                    DispatchQueue.main.async {
+//                        print("employee image not found")
+//                        self.employeeImage.image = UIImage()
+//                    }
+//                }
+//            }
         }
     }
     
