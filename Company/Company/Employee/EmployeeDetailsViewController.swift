@@ -47,11 +47,11 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
         let phone2 = phone2TextField.text
         
         // Data when editing an employee
-        let image = employee?.image ?? nil
-        let id = employee?.id ?? nil
-        let dname = employee?.dname ?? nil
+        let image = employee?.image ?? ""
+        let id = employee?.id ?? ""
+        let dname = employee?.dname ?? ""
         
-        employee = Employee(id: id!, fname: fname!, lname: lname!, salary: salary!, bdate: bday!, email: email!, dep: dep!, dname: dname!, phone1: phone1!, phone2: phone2!, image: image!)
+        employee = Employee(id: id, fname: fname!, lname: lname!, salary: salary!, bdate: bday!, email: email!, dep: dep!, dname: dname, phone1: phone1!, phone2: phone2!, image: image)
     }
     
     // MARK: UITextFieldDelegate

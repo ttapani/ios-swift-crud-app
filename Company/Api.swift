@@ -38,7 +38,7 @@ struct Api {
         request.httpMethod = "POST"
         request.httpBody = encodedData
         print("HTTP POST: " + request.description)
-        print(request.httpBody?.description)
+        print(request.httpBody?.debugDescription)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode != 200 {

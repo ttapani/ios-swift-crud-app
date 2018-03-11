@@ -344,6 +344,64 @@
             </objects>
             <point key="canvasLocation" x="2517.5999999999999" y="174.96251874062969"/>
         </scene>
+        <!--New department-->
+        <scene sceneID="upO-l3-JVN">
+            <objects>
+                <tableViewController id="wqK-fP-O3p" customClass="DepartmentDetailsViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2Ju-CS-mpC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Department name" id="rV3-ds-p1R">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="o7X-I6-R6B">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7X-I6-R6B" id="ktN-wA-n4g">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hn0-O0-eue">
+                                                    <rect key="frame" x="16" y="0.0" width="338" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="wqK-fP-O3p" id="axD-vz-eDt"/>
+                            <outlet property="delegate" destination="wqK-fP-O3p" id="oCV-Nm-JBK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New department" id="cG0-0B-fIm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FQ3-Cn-kbL">
+                            <connections>
+                                <action selector="cancel:" destination="wqK-fP-O3p" id="XVu-jb-FPk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6pz-Qx-CVx">
+                            <connections>
+                                <segue destination="XnD-9T-tcN" kind="unwind" unwindAction="unwindToDepartmentsListWithSender:" id="1IO-bP-HjJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="departmentNameTextField" destination="hn0-O0-eue" id="Nfb-yN-Hrc"/>
+                        <outlet property="saveButton" destination="6pz-Qx-CVx" id="ibZ-ix-pxo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckm-hV-55a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XnD-9T-tcN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2517.5999999999999" y="1002.5487256371815"/>
+        </scene>
         <!--Departments View Controller-->
         <scene sceneID="ldS-yt-0SX">
             <objects>
@@ -371,6 +429,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="departmentNameLabel" destination="CO9-JN-GGD" id="m0E-Ch-25v"/>
+                                    <segue destination="wqK-fP-O3p" kind="show" identifier="ShowDepartmentDetail" id="HvH-VD-vMi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -379,7 +438,14 @@
                             <outlet property="delegate" destination="TfA-Ps-cEs" id="o9A-IK-srb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="D2N-Hq-s3S"/>
+                    <navigationItem key="navigationItem" id="D2N-Hq-s3S">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nkC-ah-sE4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8g3-gJ-7WE">
+                            <connections>
+                                <segue destination="sYP-Kc-0U7" kind="presentation" identifier="AddDepartment" id="sLN-CS-kKP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yA-Ey-OJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,7 +497,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOi-D5-lmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840.79999999999995" y="1835.5322338830586"/>
+            <point key="canvasLocation" x="841" y="2330"/>
         </scene>
         <!--Project details-->
         <scene sceneID="Tk9-Io-tXK">
@@ -562,7 +628,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGr-wP-p6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.8000000000002" y="1835.5322338830586"/>
+            <point key="canvasLocation" x="2884" y="2330"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dh0-5r-8kb">
@@ -640,7 +706,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBX-Gl-jik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="1836"/>
+            <point key="canvasLocation" x="44" y="2329"/>
         </scene>
         <!--Home-->
         <scene sceneID="g3w-ML-55g">
@@ -695,7 +761,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1S-Tv-86e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="1388"/>
+            <point key="canvasLocation" x="1916" y="1918"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Z9-Fw-1eV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sYP-Kc-0U7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3WP-SK-RwE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wqK-fP-O3p" kind="relationship" relationship="rootViewController" id="wDB-qj-PLy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tn-Oa-4b5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="699"/>
         </scene>
     </scenes>
     <resources>
@@ -705,7 +789,8 @@
         <image name="044" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YX6-6J-jxY"/>
+        <segue reference="165-ul-EkR"/>
+        <segue reference="HvH-VD-vMi"/>
         <segue reference="h2l-z0-EVV"/>
     </inferredMetricsTieBreakers>
 </document>

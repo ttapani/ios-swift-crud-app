@@ -14,6 +14,7 @@
 		2A049F202054359A00415B40 /* ProjectDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A049F1F2054359A00415B40 /* ProjectDetailsCell.swift */; };
 		2A049F2220543B8500415B40 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A049F2120543B8500415B40 /* ProjectDetail.swift */; };
 		2A4874C420555446005931D6 /* ProjectManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C320555446005931D6 /* ProjectManagerCell.swift */; };
+		2A4874C620557282005931D6 /* DepartmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C520557282005931D6 /* DepartmentDetailsViewController.swift */; };
 		2A7CD62E20536AB700DBFF88 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7CD62D20536AB700DBFF88 /* Department.swift */; };
 		2ABA23A5201F568F008186A2 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */; };
 		2ABA23A7201F56AC008186A2 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */; };
@@ -37,6 +38,7 @@
 		2A049F1F2054359A00415B40 /* ProjectDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsCell.swift; sourceTree = "<group>"; };
 		2A049F2120543B8500415B40 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		2A4874C320555446005931D6 /* ProjectManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerCell.swift; sourceTree = "<group>"; };
+		2A4874C520557282005931D6 /* DepartmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDetailsViewController.swift; sourceTree = "<group>"; };
 		2A7CD62D20536AB700DBFF88 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		2A7CD632205374C700DBFF88 /* Department */ = {
 			isa = PBXGroup;
 			children = (
+				2A4874C520557282005931D6 /* DepartmentDetailsViewController.swift */,
 				2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */,
 				2A049F162053752400415B40 /* DepartmentCell.swift */,
 				2A7CD62D20536AB700DBFF88 /* Department.swift */,
@@ -218,6 +221,7 @@
 				2AFA736020161B4000718984 /* AppDelegate.swift in Sources */,
 				2ABA23A9201F641D008186A2 /* EmployeeDetailsViewController.swift in Sources */,
 				2AFA737A201627CA00718984 /* Api.swift in Sources */,
+				2A4874C620557282005931D6 /* DepartmentDetailsViewController.swift in Sources */,
 				2ABA23AB201F70BD008186A2 /* HomeViewController.swift in Sources */,
 				2ABA23A5201F568F008186A2 /* DepartmentsViewController.swift in Sources */,
 				2A049F172053752400415B40 /* DepartmentCell.swift in Sources */,
