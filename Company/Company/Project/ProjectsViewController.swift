@@ -57,13 +57,13 @@ class ProjectsViewController: UITableViewController {
         return cell
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -92,14 +92,30 @@ class ProjectsViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "ShowProjectDetails":
+            guard let projectDetailsViewController = segue.destination as? ProjectDetailsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedProjectCell = sender as? ProjectCell else {
+                fatalError("Unexpected sender: " + sender.debugDescription)
+            }
+            
+            guard let indexpath = tableView.indexPath(for: selectedProjectCell ) else {
+                fatalError("Selected cell is not displayed on the table")
+            }
+            
+            let selectedProject = projects[indexpath.row]
+            projectDetailsViewController.project = selectedProject
+        
+        default:
+            fatalError("Unexpected segue indentifier")
+        }
     }
-    */
-
 }
