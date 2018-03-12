@@ -9,11 +9,14 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
     @IBOutlet weak var salaryTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var departmentTextField: UITextField!
+    //@IBOutlet weak var departmentTextField: UITextField!
+    @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var phone1TextField: UITextField!
     @IBOutlet weak var phone2TextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var employee: Employee?
+    var departmentId: String?
+    @IBOutlet weak var bdayDatePicker: UIDatePicker!
     
     //MARK: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -32,7 +35,7 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+        guard let button = sender as? UIBarButtonItem, button === saveButton, segue.identifier == "SaveEmployee" else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
@@ -40,9 +43,12 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
         let fname = fnameTextField.text
         let lname = lnameTextField.text
         let salary = salaryTextField.text
-        let bday = birthdayTextField.text
+        //let bday = birthdayTextField.text
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = ("yyyy-MM-dd")
+        let bday = dateFormatter.string(from: bdayDatePicker.date)
         let email = emailTextField.text
-        let dep = departmentTextField.text
+        let dep = departmentId
         let phone1 = phone1TextField.text
         let phone2 = phone2TextField.text
         
@@ -51,7 +57,17 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
         let id = employee?.id ?? ""
         let dname = employee?.dname ?? ""
         
-        employee = Employee(id: id, fname: fname!, lname: lname!, salary: salary!, bdate: bday!, email: email!, dep: dep!, dname: dname, phone1: phone1!, phone2: phone2!, image: image)
+        employee = Employee(id: id, fname: fname!, lname: lname!, salary: salary!, bdate: bday, email: email!, dep: dep!, dname: dname, phone1: phone1!, phone2: phone2!, image: image)
+    }
+    
+    @IBAction func unwindWithDepartment(segue: UIStoryboardSegue) {
+        if let selectDepartmentViewController = segue.source as? SelectDepartmentViewController,
+            let departmentId = selectDepartmentViewController.departmentId, let departmentName = selectDepartmentViewController.departmentName {
+            employee?.dname = departmentName
+            employee?.dep = departmentId
+            self.departmentId = departmentId
+            departmentLabel.text = departmentName
+        }
     }
     
     // MARK: UITextFieldDelegate
@@ -91,9 +107,14 @@ class EmployeeDetailsViewController: UITableViewController, UITextFieldDelegate 
             fnameTextField.text = employee.fname
             lnameTextField.text = employee.lname
             salaryTextField.text = employee.salary?.description
-            birthdayTextField.text = employee.bdate
+            //birthdayTextField.text = employee.bdate
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = ("yyyy-MM-dd")
+            let date = dateFormatter.date(from: employee.bdate!)
+            bdayDatePicker.setDate(date!, animated: false)
             emailTextField.text = employee.email
-            departmentTextField.text = employee.dep
+            departmentLabel.text = employee.dname
+            departmentId = employee.dep
             phone1TextField.text = employee.phone1
             phone2TextField.text = employee.phone2
         }

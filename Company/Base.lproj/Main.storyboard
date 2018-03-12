@@ -206,7 +206,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Birthday" id="AQV-S9-eXo">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r8B-io-aF8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="r8B-io-aF8">
                                         <rect key="frame" x="0.0" y="355.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r8B-io-aF8" id="0fh-oI-h2q">
@@ -220,6 +220,14 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="erP-fT-eqD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="542527033.54218102">
+                                                        <!--2018-03-12 05:57:13 +0000-->
+                                                    </date>
+                                                    <locale key="locale" localeIdentifier="fi"/>
+                                                </datePicker>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -248,22 +256,25 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Department" id="3FM-mx-CHp">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2CR-fa-yYG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="2CR-fa-yYG">
                                         <rect key="frame" x="0.0" y="555.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2CR-fa-yYG" id="znU-VC-8QH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-dg-wJk">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nps-rb-zNG">
+                                                    <rect key="frame" x="16" y="0.0" width="325" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Pvi-Qh-7Fb" kind="show" id="Xfe-ig-X9L"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -323,13 +334,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vfs-QN-7ir">
                             <connections>
-                                <segue destination="3Ye-cq-Nik" kind="unwind" unwindAction="unwindToEmployeeListWithSender:" id="4CD-cZ-AcT"/>
+                                <segue destination="3Ye-cq-Nik" kind="unwind" identifier="SaveEmployee" unwindAction="unwindToEmployeeListWithSender:" id="4CD-cZ-AcT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bdayDatePicker" destination="erP-fT-eqD" id="BmR-kL-Xwc"/>
                         <outlet property="birthdayTextField" destination="Ri6-Yj-f2U" id="UpD-ri-Iit"/>
-                        <outlet property="departmentTextField" destination="Efe-dg-wJk" id="Q6n-0b-85K"/>
+                        <outlet property="departmentLabel" destination="Nps-rb-zNG" id="9F2-I0-eRs"/>
                         <outlet property="emailTextField" destination="mTW-O7-26B" id="3nT-7l-rSr"/>
                         <outlet property="fnameTextField" destination="7I1-Hq-GS9" id="cJA-gO-h3n"/>
                         <outlet property="lnameTextField" destination="7w0-lZ-0wf" id="4Xp-jw-hrI"/>
@@ -343,6 +355,38 @@
                 <exit id="3Ye-cq-Nik" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2517.5999999999999" y="174.96251874062969"/>
+        </scene>
+        <!--Select Department View Controller-->
+        <scene sceneID="Zql-oi-wDq">
+            <objects>
+                <tableViewController id="Pvi-Qh-7Fb" customClass="SelectDepartmentViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gGu-95-Cd2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DepartmentCell" id="NOV-HV-R4T">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NOV-HV-R4T" id="pW0-lf-kgj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="cQe-s9-NPF" kind="unwind" identifier="SaveDepartment" unwindAction="unwindWithDepartmentWithSegue:" id="HfC-S2-hAm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Pvi-Qh-7Fb" id="Mbg-HK-AQ9"/>
+                            <outlet property="delegate" destination="Pvi-Qh-7Fb" id="ghM-9o-hDD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwh-nn-obl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cQe-s9-NPF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3457" y="176"/>
         </scene>
         <!--New department-->
         <scene sceneID="upO-l3-JVN">
