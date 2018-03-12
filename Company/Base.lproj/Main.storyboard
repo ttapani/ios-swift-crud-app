@@ -521,6 +521,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-YW-7Zc">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="33.5"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="50" id="hgv-em-IwQ"/>
                                                         <constraint firstAttribute="width" constant="50" id="x6q-b8-Pkf"/>
                                                     </constraints>
                                                 </imageView>
@@ -626,6 +627,26 @@
                                     <segue destination="bYn-lf-tJn" kind="show" identifier="EditProjectName" id="e8E-T3-dfJ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddHoursCell" id="Khi-Zb-FVy" customClass="AddHoursCell" customModule="Company" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Khi-Zb-FVy" id="Thq-0k-ZCn">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMZ-Hk-YF5">
+                                            <rect key="frame" x="16" y="10" width="317" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lMT-Pe-sBj" kind="show" identifier="AddHours" id="3Gm-al-1ul"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -653,6 +674,129 @@
                 <exit id="VI2-4C-ZQj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2883.5" y="2328.5"/>
+        </scene>
+        <!--Add Hours View Controller-->
+        <scene sceneID="Fba-mI-r2x">
+            <objects>
+                <tableViewController id="Vbn-Kv-1uW" customClass="AddHoursViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="MBh-qw-zDt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Employee" id="PA5-LO-RtA">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LjJ-82-O8H">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LjJ-82-O8H" id="anB-8F-v8n">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Klc-cp-nTL">
+                                                    <rect key="frame" x="16" y="12" width="343" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="d59-0M-SQ9" kind="show" identifier="ChooseEmployee" id="eao-iD-KxY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Hours" id="8SD-ux-4ij">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qgu-t4-Fb0">
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qgu-t4-Fb0" id="Xfr-5h-Ii4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHH-uO-Kkx">
+                                                    <rect key="frame" x="16" y="7" width="225" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ho9-bo-GTc">
+                                                    <rect key="frame" x="265" y="7" width="94" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="stepperChanged:" destination="Vbn-Kv-1uW" eventType="valueChanged" id="n8d-O6-7ki"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Vbn-Kv-1uW" id="7cY-lD-YqR"/>
+                            <outlet property="delegate" destination="Vbn-Kv-1uW" id="B5f-Th-XtQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Tie-sV-Iso">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EEu-tV-571">
+                            <connections>
+                                <action selector="cancel:" destination="Vbn-Kv-1uW" id="ZE5-yE-MAe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GVT-hA-0bH">
+                            <connections>
+                                <segue destination="IHj-z4-CFR" kind="unwind" identifier="AddHoursWorked" unwindAction="unwindWithHoursWorkedWithSegue:" id="k5s-4X-fGZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="employeeNameLabel" destination="Klc-cp-nTL" id="VUd-Ov-7bY"/>
+                        <outlet property="hoursWorkedLabel" destination="YHH-uO-Kkx" id="kcv-rb-OAU"/>
+                        <outlet property="hoursWorkedStepper" destination="ho9-bo-GTc" id="skT-76-Jnc"/>
+                        <outlet property="saveButton" destination="GVT-hA-0bH" id="OAk-Bv-74h"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5k-pc-cfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IHj-z4-CFR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4892" y="1634.9325337331336"/>
+        </scene>
+        <!--Choose Worker View Controller-->
+        <scene sceneID="EPD-7e-Y4F">
+            <objects>
+                <tableViewController id="d59-0M-SQ9" customClass="ChooseWorkerViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="08Z-O1-i8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkerCell" id="sF0-Av-yVN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sF0-Av-yVN" id="vh1-9h-JlX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="pzf-wJ-h2Q" kind="unwind" identifier="SaveEmployee" unwindAction="unwindWithWorkerWithSegue:" id="SQ4-fe-CuR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="d59-0M-SQ9" id="3iQ-ws-gJh"/>
+                            <outlet property="delegate" destination="d59-0M-SQ9" id="4H4-X7-UHi"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FoE-bS-vPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pzf-wJ-h2Q" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5695" y="1635"/>
         </scene>
         <!--Edit project name-->
         <scene sceneID="Aht-MA-joG">
@@ -709,7 +853,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9J4-Nb-qc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="e7V-am-mCx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4553" y="2329"/>
+            <point key="canvasLocation" x="4892" y="2328.4857571214393"/>
         </scene>
         <!--Choose manager-->
         <scene sceneID="Pfk-Rq-9CQ">
@@ -902,6 +1046,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tn-Oa-4b5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1665" y="699"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="92M-51-nNP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMT-Pe-sBj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cna-K5-GtT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vbn-Kv-1uW" kind="relationship" relationship="rootViewController" id="3NK-lN-5Y2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jf9-L4-MDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4132" y="1635"/>
         </scene>
     </scenes>
     <resources>

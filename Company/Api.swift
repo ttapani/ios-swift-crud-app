@@ -72,9 +72,10 @@ struct Api {
         let apiUrl = URL(string: self.companyUrl + collection + "/" + id)
         var request = URLRequest(url: apiUrl!)
         request.httpMethod = "DELETE"
-        print(request as Any)
+        print(request.debugDescription)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
+                print("Response is: " + httpResponse.statusCode.description)
                 if httpResponse.statusCode != 200 {
                     deleteCompleted(nil, false, String(httpResponse.statusCode))
                 } else {

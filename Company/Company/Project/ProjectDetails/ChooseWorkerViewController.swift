@@ -1,19 +1,27 @@
+//
+//  ChooseWorkerViewController.swift
+//  Company
+//
+//  Created by Tomi Heino on 12/03/2018.
+//  Copyright © 2018 th. All rights reserved.
+//
+
 import UIKit
 
-class ChooseManagerViewController: UITableViewController {
+class ChooseWorkerViewController: UITableViewController {
     var employees: [Employee] = []
-    var managerId: String?
-    var selectedManager: Employee? {
+    var employeeId: String?
+    var selectedEmployee: Employee? {
         didSet {
-            if let selectedManager = selectedManager, let index = employees.index(where: { (employee) in
-                employee.id == selectedManager.id
+            if let selectedEmployee = selectedEmployee, let index = employees.index(where: { (employee) in
+                employee.id == selectedEmployee.id
             }) {
-                selectedManagerIndex = index
+                selectedEmployeeIndex = index
             }
         }
     }
-    var selectedManagerIndex: Int?
-
+    var selectedEmployeeIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +37,7 @@ class ChooseManagerViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
     func loadData() -> Void {
         self.employees.removeAll()
@@ -44,37 +52,37 @@ class ChooseManagerViewController: UITableViewController {
             
         }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ManagerCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath)
         let employee = employees[indexPath.row] as Employee
         cell.textLabel?.text = employee.fname! + " " + employee.lname!
         cell.detailTextLabel?.text = employee.dname
-        if indexPath.row == selectedManagerIndex {
+        if indexPath.row == selectedEmployeeIndex {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
         }
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let index = selectedManagerIndex {
+        if let index = selectedEmployeeIndex {
             let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0))
             cell?.accessoryType = .none
         }
         
-        selectedManager = employees[indexPath.row]
+        selectedEmployee = employees[indexPath.row]
         
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
@@ -115,16 +123,17 @@ class ChooseManagerViewController: UITableViewController {
     }
     */
 
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SaveChosenManager", let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
+        guard segue.identifier == "SaveEmployee", let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
             return
         }
         
         let index = indexPath.row
-        managerId = employees[index].id
+        employeeId = employees[index].id
     }
 
 }

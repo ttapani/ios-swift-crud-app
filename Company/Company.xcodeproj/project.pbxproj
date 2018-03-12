@@ -18,11 +18,14 @@
 		2A4874C82055C822005931D6 /* ProjectNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C72055C822005931D6 /* ProjectNameCell.swift */; };
 		2A4874CA2055CB40005931D6 /* EditProjectNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */; };
 		2A4874CC2055D662005931D6 /* ChooseManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */; };
+		2A4874CE205617F2005931D6 /* AddHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874CD205617F2005931D6 /* AddHoursCell.swift */; };
+		2A4874D020561E62005931D6 /* AddHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874CF20561E62005931D6 /* AddHoursViewController.swift */; };
 		2A7CD62E20536AB700DBFF88 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7CD62D20536AB700DBFF88 /* Department.swift */; };
 		2ABA23A5201F568F008186A2 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */; };
 		2ABA23A7201F56AC008186A2 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */; };
 		2ABA23A9201F641D008186A2 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A8201F641D008186A2 /* EmployeeDetailsViewController.swift */; };
 		2ABA23AB201F70BD008186A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23AA201F70BD008186A2 /* HomeViewController.swift */; };
+		2ADEF51B205626530046E9B6 /* ChooseWorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEF51A205626530046E9B6 /* ChooseWorkerViewController.swift */; };
 		2AFA736020161B4000718984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFA735F20161B4000718984 /* AppDelegate.swift */; };
 		2AFA736520161B4000718984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AFA736320161B4000718984 /* Main.storyboard */; };
 		2AFA736720161B4000718984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AFA736620161B4000718984 /* Assets.xcassets */; };
@@ -45,11 +48,14 @@
 		2A4874C72055C822005931D6 /* ProjectNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNameCell.swift; sourceTree = "<group>"; };
 		2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectNameViewController.swift; sourceTree = "<group>"; };
 		2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseManagerViewController.swift; sourceTree = "<group>"; };
+		2A4874CD205617F2005931D6 /* AddHoursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoursCell.swift; sourceTree = "<group>"; };
+		2A4874CF20561E62005931D6 /* AddHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoursViewController.swift; sourceTree = "<group>"; };
 		2A7CD62D20536AB700DBFF88 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		2ABA23A8201F641D008186A2 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		2ABA23AA201F70BD008186A2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2ADEF51A205626530046E9B6 /* ChooseWorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWorkerViewController.swift; sourceTree = "<group>"; };
 		2AFA735C20161B4000718984 /* Company.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Company.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFA735F20161B4000718984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AFA736420161B4000718984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		2A4874C220554D38005931D6 /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2ADEF51A205626530046E9B6 /* ChooseWorkerViewController.swift */,
 				2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */,
 				2A049F1D2054254100415B40 /* ProjectDetailsViewController.swift */,
 				2A049F1F2054359A00415B40 /* ProjectDetailsCell.swift */,
@@ -94,6 +101,8 @@
 				2A4874C320555446005931D6 /* ProjectManagerCell.swift */,
 				2A4874C72055C822005931D6 /* ProjectNameCell.swift */,
 				2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */,
+				2A4874CD205617F2005931D6 /* AddHoursCell.swift */,
+				2A4874CF20561E62005931D6 /* AddHoursViewController.swift */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -227,7 +236,9 @@
 			files = (
 				2AFA737220161BE000718984 /* Employee.swift in Sources */,
 				2AFA73782016200C00718984 /* EmployeeCell.swift in Sources */,
+				2ADEF51B205626530046E9B6 /* ChooseWorkerViewController.swift in Sources */,
 				2AFA736020161B4000718984 /* AppDelegate.swift in Sources */,
+				2A4874CE205617F2005931D6 /* AddHoursCell.swift in Sources */,
 				2ABA23A9201F641D008186A2 /* EmployeeDetailsViewController.swift in Sources */,
 				2AFA737A201627CA00718984 /* Api.swift in Sources */,
 				2A4874C620557282005931D6 /* DepartmentDetailsViewController.swift in Sources */,
@@ -237,6 +248,7 @@
 				2A4874CC2055D662005931D6 /* ChooseManagerViewController.swift in Sources */,
 				2A049F2220543B8500415B40 /* ProjectDetail.swift in Sources */,
 				2A049F1B20537AA200415B40 /* ProjectCell.swift in Sources */,
+				2A4874D020561E62005931D6 /* AddHoursViewController.swift in Sources */,
 				2A4874CA2055CB40005931D6 /* EditProjectNameViewController.swift in Sources */,
 				2A7CD62E20536AB700DBFF88 /* Department.swift in Sources */,
 				2A049F202054359A00415B40 /* ProjectDetailsCell.swift in Sources */,

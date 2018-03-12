@@ -61,11 +61,11 @@ class ProjectDetailsViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 || section == 1 {
+        if section == 0 || section == 1 || section == 3{
             return 1
         } else {
             return projectDetails.count
@@ -77,6 +77,8 @@ class ProjectDetailsViewController: UITableViewController {
             return "Project name"
         } else if section == 1 {
             return "Project manager"
+        } else if section == 3 {
+            return "Project management"
         } else {
             return "Workers"
         }
@@ -113,6 +115,9 @@ class ProjectDetailsViewController: UITableViewController {
             }
             managerCell = headerCell
             return headerCell
+        } else if indexPath.section == 3 {
+            let addHoursCell = tableView.dequeueReusableCell(withIdentifier: "AddHoursCell", for: indexPath) as! AddHoursCell
+            return addHoursCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectDetailsCell", for: indexPath) as! ProjectDetailsCell
             let projectDetail = projectDetails[indexPath.row] as ProjectDetail
@@ -141,13 +146,16 @@ class ProjectDetailsViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if indexPath.section == 2 {
+            return true
+        } else {
+            return false
+        }
     }
-    */
+ 
 
     /*
     // Override to support editing the table view.
@@ -175,6 +183,31 @@ class ProjectDetailsViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let projectDetail = self.projectDetails[indexPath.row]
+            print("Deleting projectdetail " + projectDetail.id)
+            
+            ProjectDetail.deleteProjectDetail(id: projectDetail.id) { (success) in
+                if(success) {
+                    self.projectDetails.remove(at: indexPath.row)
+                    let indexPaths = [indexPath]
+                    // Sending a DELETE request to a project detail id seems to always return 200
+                    // despite not changing the state, eg. actually deleting a resource..
+                    // UI gets falsefully updated for now..
+                    DispatchQueue.main.async(execute: {
+                        print("Deleted projectdetail " + projectDetail.id)
+                        tableView.deleteRows(at: indexPaths, with: .fade)
+                    })
+                }
+                
+            }
+        }
+        return [delete]
+        
+    }
 
     // MARK: - Navigation
 
@@ -221,7 +254,12 @@ class ProjectDetailsViewController: UITableViewController {
             let id = project?.id ?? ""
             
             project = Project(id: id, pname: pname, mid: mid, fname: fname!, lname: lname!, image: image)
-            
+        
+        case "AddHours":
+            guard let addHoursViewController = segue.destination as? AddHoursViewController else {
+                return
+            }
+
         default:
             fatalError("Unexpected Segue Identifier")
         }
@@ -273,6 +311,26 @@ class ProjectDetailsViewController: UITableViewController {
                         self.managerCell.projectManagerImage.image = nil
                     }
                 }
+            }
+        }
+    }
+    
+    @IBAction func unwindWithHoursWorked(segue: UIStoryboardSegue) {
+        if let addHoursViewController = segue.source as? AddHoursViewController, var projectDetail = addHoursViewController.projectDetail {
+            projectDetail.pid = project?.id
+            
+            ProjectDetail.addProjectDetail(projectDetail: projectDetail) { (success) in
+                if(success) {
+                    DispatchQueue.main.async(execute: {
+                        let newIndexPath = IndexPath(row: self.projectDetails.count, section: 2)
+                        self.projectDetails.append(projectDetail)
+                        self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+                    })
+                }
+                else {
+                    print("error in api")
+                }
+                
             }
         }
     }

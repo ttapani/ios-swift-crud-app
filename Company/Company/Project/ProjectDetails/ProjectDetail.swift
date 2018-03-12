@@ -1,6 +1,6 @@
 import Foundation
 
-struct ProjectDetail {
+struct ProjectDetail: Encodable {
     var id: String
     var pname: String?
     var eid: String?
@@ -8,6 +8,7 @@ struct ProjectDetail {
     var lname: String?
     var image: String?
     var hours: String?
+    var pid: String?
 }
 
 extension ProjectDetail {
@@ -19,6 +20,20 @@ extension ProjectDetail {
         self.lname = ""
         self.image = ""
         self.hours = ""
+        self.pid = ""
+    }
+}
+
+extension ProjectDetail {
+    init?(eid: String?, fname: String?, lname: String?, image: String?, hours: String?, pid: String?) {
+        self.id = ""
+        self.pname = ""
+        self.eid = eid ?? ""
+        self.fname = fname ?? ""
+        self.lname = lname ?? ""
+        self.image = image ?? ""
+        self.hours = hours ?? ""
+        self.pid = hours ?? ""
     }
 }
 
@@ -31,6 +46,15 @@ extension ProjectDetail {
         self.lname = (json["lname"] as? String) ?? nil
         self.image = (json["image"] as? String) ?? nil
         self.hours = (json["hours"] as? String) ?? nil
+        self.pid = ""
+    }
+}
+
+extension ProjectDetail {
+    enum CodingKeys: String, CodingKey {
+        case eid
+        case pid
+        case hours
     }
 }
 
@@ -59,6 +83,34 @@ extension ProjectDetail {
                 }
             }
             completion(projectDetails)
+        }
+    }
+    
+    static func deleteProjectDetail(id: String, completion: @escaping (Bool) -> Void) {
+        let deleteUrl = "projectdetail"
+        
+        Api.delete(collection: deleteUrl, id: id) { (data, succeeded, error) in
+            if !succeeded {
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
+        }
+    }
+    
+    static func addProjectDetail(projectDetail: ProjectDetail, completion: @escaping (Bool) -> Void) {
+        let addUrl = "projectdetail"
+        let encoder = JSONEncoder()
+        //encoder = .prettyPrinted
+        let encodedProject = try? encoder.encode(projectDetail)
+        //print(String(data: encodedEmployee!, encoding: .utf8)!)
+        Api.add(collection: addUrl, encodedData: encodedProject!) { (data, succeeded, error) in
+            if !succeeded {
+                print("Projectdetail add failed, error: ")
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
         }
     }
 }
