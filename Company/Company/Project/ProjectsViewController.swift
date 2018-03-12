@@ -1,12 +1,5 @@
-//
-//  ProjectsViewController.swift
-//  Company
-//
-//  Created by Tomi Heino on 29/01/2018.
-//  Copyright © 2018 th. All rights reserved.
-//
-
 import UIKit
+import os.log
 
 class ProjectsViewController: UITableViewController {
     var projects: [Project] = []
@@ -18,7 +11,7 @@ class ProjectsViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         loadData()
     }
 
@@ -65,17 +58,26 @@ class ProjectsViewController: UITableViewController {
     }
     
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            // Delete department in api, update locally
+            let project = projects[indexPath.row]
+            Project.deleteProject(id: project.id) { (success) in
+                if(success) {
+                    self.projects.remove(at: indexPath.row)
+                    let indexPaths = [indexPath]
+                    DispatchQueue.main.async(execute: {
+                        tableView.deleteRows(at: indexPaths, with: .fade)
+                    })
+                }
+                
+            }
+        }
+        else if editingStyle == .insert {
+            
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -98,6 +100,9 @@ class ProjectsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
+        case "AddProject":
+            os_log("Adding a new project", log: OSLog.default, type: .debug)
+            
         case "ShowProjectDetails":
             guard let projectDetailsViewController = segue.destination as? ProjectDetailsViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
@@ -116,6 +121,42 @@ class ProjectsViewController: UITableViewController {
         
         default:
             fatalError("Unexpected segue indentifier")
+        }
+    }
+    
+    // MARK: Actions
+    @IBAction func unwindToProjectList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ProjectDetailsViewController, let project = sourceViewController.project {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                print("returning from editing")
+                print(project)
+                // Send changes to api
+                Project.updateProject(project: project) { (success) in
+                    if(success) {
+                        DispatchQueue.main.async(execute: {
+                            self.projects[selectedIndexPath.row] = project
+                            self.tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                        })
+                    }
+                }
+            }
+            else {
+                Project.addProject(project: project) { (success) in
+                    if(success) {
+                        DispatchQueue.main.async(execute: {
+                            let newIndexPath = IndexPath(row: self.projects.count, section: 0)
+                            self.projects.append(project)
+                            self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+                        })
+                    }
+                    else {
+                        print("error in api")
+                    }
+                    
+                }
+            }
+            
         }
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Project {
+struct Project: Encodable {
     var id: String
     var pname: String?
     var mid: String?
@@ -34,6 +34,13 @@ extension Project {
 }
 
 extension Project {
+    enum CodingKeys: String, CodingKey {
+        case pname
+        case mid
+    }
+}
+
+extension Project {
     static func getProjects(completion: @escaping ([Project]) -> Void) {
         var projects: [Project] = []
         let getUrl = "projects"
@@ -56,6 +63,49 @@ extension Project {
                 }
             }
             completion(projects)
+        }
+    }
+    
+    static func deleteProject(id: String, completion: @escaping (Bool) -> Void) {
+        let deleteUrl = "project"
+        
+        Api.delete(collection: deleteUrl, id: id) { (data, succeeded, error) in
+            if !succeeded {
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
+        }
+    }
+    
+    static func addProject(project: Project, completion: @escaping (Bool) -> Void) {
+        let addUrl = "project"
+        let encoder = JSONEncoder()
+        //encoder = .prettyPrinted
+        let encodedProject = try? encoder.encode(project)
+        //print(String(data: encodedEmployee!, encoding: .utf8)!)
+        Api.add(collection: addUrl, encodedData: encodedProject!) { (data, succeeded, error) in
+            if !succeeded {
+                print("Project add failed, error: ")
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
+        }
+    }
+    
+    static func updateProject(project: Project, completion: @escaping (Bool) -> Void) {
+        let updateUrl = "project"
+        let encoder = JSONEncoder()
+        let encodedProject = try? encoder.encode(project)
+        print(String(data: encodedProject!, encoding: .utf8)!)
+        Api.update(collection: updateUrl, id: project.id, encodedData: encodedProject!) { (data, succeeded, error) in
+            if !succeeded {
+                print("Project update failed, error: ")
+                print(error as Any)
+            } else {
+                completion(succeeded)
+            }
         }
     }
 }

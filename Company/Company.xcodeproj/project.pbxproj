@@ -15,6 +15,9 @@
 		2A049F2220543B8500415B40 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A049F2120543B8500415B40 /* ProjectDetail.swift */; };
 		2A4874C420555446005931D6 /* ProjectManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C320555446005931D6 /* ProjectManagerCell.swift */; };
 		2A4874C620557282005931D6 /* DepartmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C520557282005931D6 /* DepartmentDetailsViewController.swift */; };
+		2A4874C82055C822005931D6 /* ProjectNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C72055C822005931D6 /* ProjectNameCell.swift */; };
+		2A4874CA2055CB40005931D6 /* EditProjectNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */; };
+		2A4874CC2055D662005931D6 /* ChooseManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */; };
 		2A7CD62E20536AB700DBFF88 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7CD62D20536AB700DBFF88 /* Department.swift */; };
 		2ABA23A5201F568F008186A2 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */; };
 		2ABA23A7201F56AC008186A2 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */; };
@@ -39,6 +42,9 @@
 		2A049F2120543B8500415B40 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		2A4874C320555446005931D6 /* ProjectManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerCell.swift; sourceTree = "<group>"; };
 		2A4874C520557282005931D6 /* DepartmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDetailsViewController.swift; sourceTree = "<group>"; };
+		2A4874C72055C822005931D6 /* ProjectNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNameCell.swift; sourceTree = "<group>"; };
+		2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectNameViewController.swift; sourceTree = "<group>"; };
+		2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseManagerViewController.swift; sourceTree = "<group>"; };
 		2A7CD62D20536AB700DBFF88 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		2ABA23A4201F568F008186A2 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		2ABA23A6201F56AC008186A2 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -81,10 +87,13 @@
 		2A4874C220554D38005931D6 /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2A4874CB2055D662005931D6 /* ChooseManagerViewController.swift */,
 				2A049F1D2054254100415B40 /* ProjectDetailsViewController.swift */,
 				2A049F1F2054359A00415B40 /* ProjectDetailsCell.swift */,
 				2A049F2120543B8500415B40 /* ProjectDetail.swift */,
 				2A4874C320555446005931D6 /* ProjectManagerCell.swift */,
+				2A4874C72055C822005931D6 /* ProjectNameCell.swift */,
+				2A4874C92055CB40005931D6 /* EditProjectNameViewController.swift */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -225,12 +234,15 @@
 				2ABA23AB201F70BD008186A2 /* HomeViewController.swift in Sources */,
 				2ABA23A5201F568F008186A2 /* DepartmentsViewController.swift in Sources */,
 				2A049F172053752400415B40 /* DepartmentCell.swift in Sources */,
+				2A4874CC2055D662005931D6 /* ChooseManagerViewController.swift in Sources */,
 				2A049F2220543B8500415B40 /* ProjectDetail.swift in Sources */,
 				2A049F1B20537AA200415B40 /* ProjectCell.swift in Sources */,
+				2A4874CA2055CB40005931D6 /* EditProjectNameViewController.swift in Sources */,
 				2A7CD62E20536AB700DBFF88 /* Department.swift in Sources */,
 				2A049F202054359A00415B40 /* ProjectDetailsCell.swift in Sources */,
 				2A4874C420555446005931D6 /* ProjectManagerCell.swift in Sources */,
 				2AFA737620161EFD00718984 /* EmployeesViewController.swift in Sources */,
+				2A4874C82055C822005931D6 /* ProjectNameCell.swift in Sources */,
 				2A049F1E2054254100415B40 /* ProjectDetailsViewController.swift in Sources */,
 				2ABA23A7201F56AC008186A2 /* ProjectsViewController.swift in Sources */,
 				2A049F19205375C800415B40 /* Project.swift in Sources */,

@@ -402,7 +402,7 @@
             </objects>
             <point key="canvasLocation" x="2517.5999999999999" y="1002.5487256371815"/>
         </scene>
-        <!--Departments View Controller-->
+        <!--Departments-->
         <scene sceneID="ldS-yt-0SX">
             <objects>
                 <tableViewController id="TfA-Ps-cEs" customClass="DepartmentsViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
@@ -438,7 +438,7 @@
                             <outlet property="delegate" destination="TfA-Ps-cEs" id="o9A-IK-srb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="D2N-Hq-s3S">
+                    <navigationItem key="navigationItem" title="Departments" id="D2N-Hq-s3S">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nkC-ah-sE4"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8g3-gJ-7WE">
                             <connections>
@@ -451,7 +451,7 @@
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="1002.5487256371815"/>
         </scene>
-        <!--Projects View Controller-->
+        <!--Projects-->
         <scene sceneID="if4-2d-ahO">
             <objects>
                 <tableViewController id="Wy9-7S-j4C" customClass="ProjectsViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
@@ -487,10 +487,10 @@
                             <outlet property="delegate" destination="Wy9-7S-j4C" id="w7R-J2-Gtx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eeN-Cc-c5M">
+                    <navigationItem key="navigationItem" title="Projects" id="eeN-Cc-c5M">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jqK-2U-KhG">
                             <connections>
-                                <segue destination="xHs-Rj-xx1" kind="presentation" id="6YJ-DU-bma"/>
+                                <segue destination="xHs-Rj-xx1" kind="presentation" identifier="AddProject" id="i3W-5q-iQu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -567,7 +567,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="euh-ZV-cL6">
-                                            <rect key="frame" x="15" y="5" width="102" height="33.5"/>
+                                            <rect key="frame" x="15" y="5" width="108" height="33.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="les-h6-Ygl">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="33.5"/>
@@ -577,17 +577,11 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-Mz-H1v">
-                                                    <rect key="frame" x="60" y="0.0" width="42" height="33.5"/>
+                                                    <rect key="frame" x="60" y="5" width="48" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsG-gW-6ZX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSb-W4-Gg7">
-                                                            <rect key="frame" x="0.0" y="20.5" width="42" height="13"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -608,7 +602,28 @@
                                 <connections>
                                     <outlet property="projectManagerImage" destination="les-h6-Ygl" id="y4Y-DW-fNJ"/>
                                     <outlet property="projectManagerLabel" destination="HSb-W4-Gg7" id="BJq-q7-mTc"/>
-                                    <outlet property="projectNameLabel" destination="YsG-gW-6ZX" id="o7J-i9-8bG"/>
+                                    <segue destination="yEG-x2-HbB" kind="show" identifier="ChooseManager" id="aq9-fI-EG4"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ProjectNameCell" id="lLd-wI-cV6" customClass="ProjectNameCell" customModule="Company" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lLd-wI-cV6" id="7jA-IY-lsR">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-w2-Uvm">
+                                            <rect key="frame" x="16" y="10" width="317" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="projectNameLabel" destination="VdG-w2-Uvm" id="jih-oX-34k"/>
+                                    <segue destination="bYn-lf-tJn" kind="show" identifier="EditProjectName" id="e8E-T3-dfJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -619,16 +634,123 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Project details" id="Kza-t8-9xF">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="ffk-Wh-dFg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ffk-Wh-dFg">
                             <connections>
                                 <action selector="cancel:" destination="eL9-m9-A4x" id="Lpa-Uv-lvd"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cZu-Yc-3su">
+                            <connections>
+                                <segue destination="VI2-4C-ZQj" kind="unwind" identifier="SaveProject" unwindAction="unwindToProjectListWithSender:" id="gf9-Ux-RLR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="cZu-Yc-3su" id="ZSO-pZ-oKJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGr-wP-p6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VI2-4C-ZQj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="2330"/>
+            <point key="canvasLocation" x="2883.5" y="2328.5"/>
+        </scene>
+        <!--Edit project name-->
+        <scene sceneID="Aht-MA-joG">
+            <objects>
+                <tableViewController title="Edit project name" id="bYn-lf-tJn" customClass="EditProjectNameViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mZo-Rr-K9s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Project name" id="Nt6-gH-hBY">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IyZ-Ud-jq6">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IyZ-Ud-jq6" id="yrL-GI-LPj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Gu-Jw-rRT">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bYn-lf-tJn" id="AsQ-LX-wFO"/>
+                            <outlet property="delegate" destination="bYn-lf-tJn" id="9ij-xQ-Bjq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="h9y-p2-u97">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Oyj-RA-4HG">
+                            <connections>
+                                <action selector="cancel:" destination="bYn-lf-tJn" id="EZM-Pg-IDV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Mss-rl-PFo">
+                            <connections>
+                                <segue destination="e7V-am-mCx" kind="unwind" unwindAction="unwindWithProjectNameWithSegue:" id="n87-M5-8vV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="projectNameTextField" destination="0Gu-Jw-rRT" id="iUt-Ve-rDO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9J4-Nb-qc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="e7V-am-mCx" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4553" y="2329"/>
+        </scene>
+        <!--Choose manager-->
+        <scene sceneID="Pfk-Rq-9CQ">
+            <objects>
+                <tableViewController title="Choose manager" id="yEG-x2-HbB" customClass="ChooseManagerViewController" customModule="Company" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MMM-vs-qym">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ManagerCell" textLabel="Ybp-6j-MoU" style="IBUITableViewCellStyleDefault" id="DTF-Gr-ila" customClass="EmployeeCell" customModule="Company" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DTF-Gr-ila" id="Wh8-lH-hv6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ybp-6j-MoU">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AEn-6p-Q5f" kind="unwind" identifier="SaveChosenManager" unwindAction="unwindWithManagerWithSegue:" id="ABL-MN-aWi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yEG-x2-HbB" id="a2n-DS-WQG"/>
+                            <outlet property="delegate" destination="yEG-x2-HbB" id="h0c-yC-M1k"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhO-dn-lgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AEn-6p-Q5f" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4552.8000000000002" y="3094.9025487256376"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dh0-5r-8kb">
@@ -789,7 +911,7 @@
         <image name="044" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="165-ul-EkR"/>
+        <segue reference="YX6-6J-jxY"/>
         <segue reference="HvH-VD-vMi"/>
         <segue reference="h2l-z0-EVV"/>
     </inferredMetricsTieBreakers>
